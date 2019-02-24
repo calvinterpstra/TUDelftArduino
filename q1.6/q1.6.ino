@@ -20,6 +20,15 @@ char getNextState(){
     }
 }
 
+char updateState(state){
+    nextState = getNextState();
+    if (state == 'R'){
+        if(){
+
+        }
+    }
+}
+
 void Rest(){
     Serial.println("Rest");
 }
