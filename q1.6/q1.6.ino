@@ -31,10 +31,17 @@ char updateState(state){
 
 void Rest(){
     Serial.println("Rest");
+    myservo.write(posX);            // tells servo to go to position X
+    digitalWrite(13,LOW);           // LED off
 }
 
 void Step(){
     Serial.println("Step");
+    myservo.write(posX);           // tell servo to go to position X
+    delay(1000);                   // waits 1000ms for the servo to reach the position
+    myservo.write(posY);           // tell servo to go to position Y
+    delay(1000);                   // waits 1000ms for the servo to reach the position
+  }
 }
 
 void Follow(){
@@ -52,6 +59,7 @@ void Switch(){
 void setup() {
   Serial.begin(9600);
   myservo.attach(3);
+  digitalWrite(13,LOW);
 }
 
 char state = 'R';
