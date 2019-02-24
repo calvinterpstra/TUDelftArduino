@@ -68,7 +68,16 @@ void Step(){
 
 void Follow(){
     Serial.println("Follow");
-}
+
+    int Analog2Angle(int analogInput){
+        return analogInput/(1023/180);
+    }
+
+    int v = analogRead(A0);
+  
+    Serial.println(Analog2Angle(v));
+    myservo.write(Analog2Angle(v));
+    }
 
 void Blink(){
     Serial.println("Blink");
@@ -76,12 +85,22 @@ void Blink(){
 
 void Switch(){
     Serial.println("Switch");
+    int OnOff = digitalRead(2);
+
+    if (OnOff == LOW) {
+        digitalWrite(13,LOW);
+    }
+    else {
+        digitalWrite(13,HIGH);
+    }
 }
 
 void setup() {
   Serial.begin(9600);
   myservo.attach(3);
   digitalWrite(13,LOW);
+  pinMode(2,INPUT);
+  digitalWrite(2, HIGH);
 }
 
 char state = 'R';
