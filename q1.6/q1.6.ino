@@ -6,6 +6,17 @@ int potpin = 0;  // analog pin used to connect the potentiometer
 int val;    // variable to read the value from the analog pin
 int posX = 60;
 int posY = 90;
+unsigned long time;
+unsigned long timeOffest;
+
+void updateTimer(){
+    time = millis() - timeOffest;
+}
+
+void resetTimer(){
+    timeOffest = millis();
+    Serial.println(timeOffest);
+}
 
 char getNextState(){
     int incomingByte = 0;
@@ -22,26 +33,31 @@ char updateState(char state){
     switch (state){
         case 'R':
             if (nextState == 'S' || nextState == 'B'){
+                resetTimer();
                 return nextState;
             } else { return state; }
             break;
         case 'S':
             if (nextState == 'F' || nextState == 'R'){
+                resetTimer();
                 return nextState;
             } else { return state; }
             break;
         case 'F':
             if (nextState == 'S'){
+                resetTimer();
                 return nextState;
             } else { return state; }
             break;
         case 'B':
             if (nextState == 'R' || nextState == 'W'){
+                resetTimer();
                 return nextState;
             } else { return state; }
             break;
         case 'W':
             if (nextState == 'R'){
+                resetTimer();
                 return nextState;
             } else { return state; }
             break;
@@ -63,7 +79,6 @@ void Step(){
     delay(1000);                   // waits 1000ms for the servo to reach the position
     myservo.write(posY);           // tell servo to go to position Y
     delay(1000);                   // waits 1000ms for the servo to reach the position
-  }
 }
 
 void Follow(){
@@ -105,6 +120,7 @@ void setup() {
 
 char state = 'R';
 void loop() {
+    updateTimer();
     switch (state) {
         case 'R':
             Rest();
@@ -127,5 +143,6 @@ void loop() {
             break;
     }
     state = updateState(state);
-    delay(500);
+    Serial.println(time/1000);
+    delay(100);
 }
