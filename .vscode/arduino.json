@@ -1,5 +1,5 @@
 {
     "port": "COM9",
     "board": "arduino:avr:uno",
-    "sketch": "PotentiometerServo\\PotentiometerServo.ino"
+    "sketch": "q1.2\\q1.2.ino"
 }
