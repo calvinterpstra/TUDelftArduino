@@ -18,7 +18,7 @@ void setup() {
 }
 
 void loop() {
-  GoToPosition(posX);              // tell servo to go to position X
+  t.every(1000, GoToPosition(posX));
   delay(1000);                       // waits 1000ms for the servo to reach the position
   GoToPosition(posY);              // tell servo to go to position Y
   delay(1000);                       // waits 1000ms for the servo to reach the position

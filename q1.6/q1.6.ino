@@ -96,6 +96,18 @@ void Follow(){
 
 void Blink(){
     Serial.println("Blink");
+
+    if (time < 1000){
+        digitalWrite(13,HIGH);
+    }
+
+    if (time < 2000){
+        digitalWrite(13,LOW);
+    }
+
+    else {
+        resetTimer()
+    }
 }
 
 void Switch(){
