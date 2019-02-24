@@ -81,12 +81,12 @@ void Step(){
     delay(1000);                   // waits 1000ms for the servo to reach the position
 }
 
+int Analog2Angle(int analogInput){
+    return analogInput/(1023/180);
+}
+
 void Follow(){
     Serial.println("Follow");
-
-    int Analog2Angle(int analogInput){
-        return analogInput/(1023/180);
-    }
 
     int v = analogRead(A0);
   
