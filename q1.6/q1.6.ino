@@ -4,6 +4,8 @@ Servo myservo;
 
 int potpin = 0;  // analog pin used to connect the potentiometer
 int val;    // variable to read the value from the analog pin
+int posX = 60;
+int posY = 90;
 
 char getNextState(){
     int incomingByte = 0;

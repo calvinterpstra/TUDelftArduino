@@ -1,5 +1,4 @@
 int incomingByte = 0;
-char outgoingByte = 0;
 
 void setup() {
         Serial.begin(9600);
