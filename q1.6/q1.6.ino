@@ -75,10 +75,13 @@ void Rest(){
 
 void Step(){
     Serial.println("Step");
-    myservo.write(posX);           // tell servo to go to position X
-    delay(1000);                   // waits 1000ms for the servo to reach the position
-    myservo.write(posY);           // tell servo to go to position Y
-    delay(1000);                   // waits 1000ms for the servo to reach the position
+    if(time < 1000){
+        myservo.write(posX);           // tell servo to go to position X
+    }
+    else if(time < 2000){
+        myservo.write(posY);           // tell servo to go to position Y
+    }
+    else { resetTimer(); }
 }
 
 int Analog2Angle(int analogInput){
