@@ -15,17 +15,39 @@ char getNextState(){
             return char(incomingByte);
         }
     }
-    else {
-        return ;
-    }
 }
 
-char updateState(state){
-    nextState = getNextState();
-    if (state == 'R'){
-        if(){
-
-        }
+char updateState(char state){
+    char nextState = getNextState();
+    switch (state){
+        case 'R':
+            if (nextState == 'S' || nextState == 'B'){
+                return nextState;
+            } else { return state; }
+            break;
+        case 'S':
+            if (nextState == 'F' || nextState == 'R'){
+                return nextState;
+            } else { return state; }
+            break;
+        case 'F':
+            if (nextState == 'S'){
+                return nextState;
+            } else { return state; }
+            break;
+        case 'B':
+            if (nextState == 'R' || nextState == 'W'){
+                return nextState;
+            } else { return state; }
+            break;
+        case 'W':
+            if (nextState == 'R'){
+                return nextState;
+            } else { return state; }
+            break;
+        default:
+            return state; 
+            break;
     }
 }
 
@@ -85,6 +107,6 @@ void loop() {
             Serial.println(state);
             break;
     }
-    state = getNextState();
-    delay(100);
+    state = updateState(state);
+    delay(500);
 }
