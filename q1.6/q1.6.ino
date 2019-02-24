@@ -15,7 +15,7 @@ void updateTimer(){
 
 void resetTimer(){
     timeOffest = millis();
-    Serial.println(timeOffest);
+    // Serial.println(timeOffest);
 }
 
 char getNextState(){
@@ -68,13 +68,13 @@ char updateState(char state){
 }
 
 void Rest(){
-    Serial.println("Rest");
+    // Serial.println("Rest");
     myservo.write(posX);            // tells servo to go to position X
     digitalWrite(13,LOW);           // LED off
 }
 
 void Step(){
-    Serial.println("Step");
+    // Serial.println("Step");
     if(time < 1000){
         myservo.write(posX);           // tell servo to go to position X
     }
@@ -89,17 +89,14 @@ int Analog2Angle(int analogInput){
 }
 
 void Follow(){
-    Serial.println("Follow");
-
+    // Serial.println("Follow");
     int v = analogRead(A0);
-  
-    Serial.println(Analog2Angle(v));
+    // Serial.println(Analog2Angle(v));
     myservo.write(Analog2Angle(v));
-    }
+}
 
 void Blink(){
-    Serial.println("Blink");
-
+    // Serial.println("Blink");
     if (time < 1000){
         digitalWrite(13,HIGH);
     }
@@ -109,12 +106,12 @@ void Blink(){
     }
 
     else {
-        resetTimer()
+        resetTimer();
     }
 }
 
 void Switch(){
-    Serial.println("Switch");
+    // Serial.println("Switch");
     int OnOff = digitalRead(2);
 
     if (OnOff == LOW) {
@@ -158,6 +155,4 @@ void loop() {
             break;
     }
     state = updateState(state);
-    Serial.println(time/1000);
-    delay(100);
 }
