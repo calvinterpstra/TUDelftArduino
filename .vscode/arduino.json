@@ -1,5 +1,5 @@
 {
-    "port": "COM3",
+    "port": "COM9",
     "board": "arduino:avr:uno",
     "sketch": "q1.6\\q1.6.ino"
 }
