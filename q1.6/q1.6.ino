@@ -22,9 +22,7 @@ char getNextState(){
     int incomingByte = 0;
     if (Serial.available() > 0) {
         incomingByte = Serial.read();
-        if (incomingByte == 87 || incomingByte == 82 || incomingByte == 66 || incomingByte == 83 || incomingByte == 70){
-            return char(incomingByte);
-        }
+        return char(incomingByte);
     }
 }
 
