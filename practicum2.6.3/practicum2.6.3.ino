@@ -5,7 +5,7 @@ void setup() {
 
 void loop() {
   int v = analogRead(A0);
-  int voltage = map(v,0,1023,5000,0);
+  int voltage = map(v, 0, 1023, 0, 5000);
   Serial.println(voltage); 
   delay(500);              
 }
