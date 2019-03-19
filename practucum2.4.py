@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Fri Dec 15 21:57:49 2017
-
-@author: Calvin
-"""
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -27,26 +22,48 @@ def main():
     measured_U0_3 = np.array([1.23, 3.78, 4.83, 4.88, 4.89, 4.89, 4.90, 4.90])
 
     plt.figure(0)
-    fig, ax1 = plt.subplots()
-
-    ax1.plot(R_load, U0, 'b', lw=2)
-    ax1.plot(measured_R_load, measured_U0, 'y', lw=2)
-    ax1.set_xlabel("R_load (Ohm)")
-    ax1.set_ylabel("U0 (V)")
-
-    ax2 = ax1.twinx()
-    ax2.plot(R_load, P, 'r', lw=2)
-    ax2.set_xlabel("power dissapated (Watts)")
-    ax2.set_ylabel("U0 (V)")
-
-    fig.tight_layout()
-    plt.grid()
-    plt.title("Theoretical voltage and power dissapated")
+    plt.plot(R_load, U0, 'b', lw=2)
+    plt.title("Theoretical voltage")
+    plt.xlabel("R_load (Ohm)")
+    plt.ylabel("U0 (V)")
     plt.show()
 
     plt.figure(1)
-    plt.plot(measured_R_load, measured_U0_2, 'b', lw=2)
+    plt.plot(R_load, P, 'r', lw=2)
+    plt.title("Power dissapated")
+    plt.xlabel("R_load (Ohm)")
+    plt.ylabel("Power dissipated (Watt)")
+    plt.show()
+
+    plt.figure(2)
+    # fig, ax1 = plt.subplots()
+
+    # ax1.plot(R_load, U0, 'b', lw=2)
+    # ax1.plot(measured_R_load, measured_U0, 'y', lw=2)
+    # ax1.set_xlabel("R_load (Ohm)")
+    # ax1.set_ylabel("U0 (V)")
+
+    # ax2 = ax1.twinx()
+    # ax2.plot(R_load, P, 'r', lw=2)
+    # ax2.set_xlabel("power dissapated (Watts)")
+    # ax2.set_ylabel("U0 (V)")
+
+    # fig.tight_layout()
+
+    plt.plot(R_load, U0, 'b', lw=2)
+    plt.plot(measured_R_load, measured_U0, 'y', lw=2)
+    plt.title("Theoretical vs measured voltage")
+    plt.xlabel("R_load (Ohm)")
+    plt.ylabel("U0 (V)")
+    plt.grid()
+    plt.show()
+
+    plt.figure(3)
+    # plt.plot(measured_R_load, measured_U0_2, 'b', lw=2)
     plt.plot(measured_R_load, measured_U0_3, 'g', lw=2)
+    plt.title("Measured opamp output")
+    plt.xlabel("R_load (Ohm)")
+    plt.ylabel("U0 (V)")
     plt.show()
 
 main()
