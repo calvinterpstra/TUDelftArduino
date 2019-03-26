@@ -48,7 +48,7 @@ void setup() {
 
 void loop() {
   if (isTime()){
-    float filtered = first_filt(analogRead(0))
-    Timer1.setPwmDuty(9,); //Sets the duty cycle to the analog value on pin 0
+    float filtered = first_filt(analogRead(0));
+    Timer1.setPwmDuty(9, filtered); //Sets the duty cycle to the analog value on pin 0
   }
 }
