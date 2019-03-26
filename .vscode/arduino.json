@@ -1,5 +1,6 @@
 {
-    "port": "COM9",
+    "port": "COM4",
     "board": "arduino:avr:uno",
-    "sketch": "4.4.1\\4.4.1.ino"
+    "sketch": "jkfgsdflkjhagsdf.ino",
+    "programmer": "AVR ISP"
 }
